@@ -40,8 +40,6 @@ def index(request):
 	ip=visitor_ip_address(request)
 	#visitor_ip(ip_address=ip).save()
 	visitor_ip.objects.update_or_create(ip_address=ip, defaults={'time': timezone.now} )
-	print("----")
-	#print(visitor_ip.objects.all())
 	posts = ''
 	data = {'posts':posts, 'ip':ip}
 	return render(request,'blog/index.html', data)
